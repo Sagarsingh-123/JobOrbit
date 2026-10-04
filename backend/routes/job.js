@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 
 const Job = require("../models/job");
-const User = require("../models/User");
+const User = require("../models/user");
 const Application = require("../models/Application");
 
 // Verify Admin
@@ -315,7 +315,6 @@ router.put("/:id", verifyAdmin, async (req, res) => {
         });
       }
 
-      // Deadline must be in future
       if (deadlineDate <= new Date()) {
         return res.status(400).json({
           message: "Deadline must be a future date",
