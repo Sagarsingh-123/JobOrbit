@@ -1,0 +1,300 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fc;
+  color: #17233b;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 7%;
+  background: white;
+  box-shadow: 0 2px 12px #0000000a;
+}
+
+.navbar h2 {
+  font-size: 27px;
+  color: #17233b;
+}
+
+.navbar h2 span {
+  color: #4563e9;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.navbar a {
+  color: #536078;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navbar a:hover {
+  color: #4563e9;
+}
+
+.login, .post {
+  padding: 11px 20px;
+  border-radius: 9px;
+  font-weight: 700;
+}
+
+.login {
+  color: #4563e9;
+  background: #edf0ff;
+}
+
+.post {
+  color: white;
+  background: #4563e9;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 85px 20px 75px;
+  background: linear-gradient(135deg, #edf1ff, #f8faff);
+}
+
+.tagline {
+  display: inline-block;
+  color: #4563e9;
+  background: #e1e7ff;
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 60px);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.hero h1 span {
+  color: #4563e9;
+}
+
+.hero > p:not(.tagline) {
+  color: #66738b;
+  font-size: 18px;
+  margin-bottom: 32px;
+}
+
+/* Search bar */
+.search {
+  display: flex;
+  max-width: 750px;
+  margin: auto;
+  padding: 8px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 10px 35px #263d7515;
+  gap: 10px;
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  padding: 15px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+.search button {
+  padding: 14px 25px;
+  border-radius: 10px;
+  background: #4563e9;
+  color: white;
+  font-weight: bold;
+}
+
+.search button:hover, .post:hover {
+  background: #304bd0;
+}
+
+/* Jobs section */
+.jobs {
+  max-width: 1050px;
+  margin: auto;
+  padding: 65px 22px;
+}
+
+.jobs > h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.jobs > p {
+  color: #66738b;
+  margin-bottom: 30px;
+}
+
+.job-list {
+  display: grid;
+  gap: 18px;
+}
+
+.job-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 25px;
+  background: white;
+  border: 1px solid #e5eaf3;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px #00000006;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px #263d7515;
+}
+
+.job-card h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.job-card p {
+  color: #66738b;
+  margin-bottom: 12px;
+}
+
+.job-type {
+  display: inline-block;
+  padding: 5px 11px;
+  border-radius: 20px;
+  background: #edf0ff;
+  color: #4563e9;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.job-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 13px;
+}
+
+.job-action strong {
+  font-size: 15px;
+}
+
+.job-action button {
+  background: #4563e9;
+  color: white;
+  padding: 11px 18px;
+  border-radius: 9px;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 35px 20px;
+  background: #17233b;
+  color: white;
+}
+
+footer h2 {
+  margin-bottom: 10px;
+}
+
+footer p {
+  color: #c3cce0;
+  margin: 7px 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 650px) {
+  .navbar {
+    padding: 16px 5%;
+  }
+
+  .navbar nav {
+    gap: 8px;
+  }
+
+  .navbar a {
+    display: none;
+  }
+
+  .navbar h2 {
+    font-size: 23px;
+  }
+
+  .login, .post {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 65px 16px;
+  }
+
+  .hero > p:not(.tagline) {
+    font-size: 15px;
+  }
+
+  .search {
+    flex-wrap: wrap;
+  }
+
+  .search input {
+    flex-basis: 100%;
+  }
+
+  .search button {
+    width: 100%;
+  }
+
+  .jobs {
+    padding: 45px 15px;
+  }
+
+  .job-card {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .job-action {
+    align-items: flex-start;
+  }
+}
