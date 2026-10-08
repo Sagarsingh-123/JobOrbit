@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const User = require("../models/user");
-const Application = require("../models/application");
+const Application = require("../models/Application");
 const { verifyAdmin } = require("../middleware/auth");
 
 router.get("/", verifyAdmin, async (req, res) => {
