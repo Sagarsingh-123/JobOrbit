@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const Application = require("../models/Application");
+const Application = require("../models/application");
 const Job = require("../models/job");
 const { verifyUser, verifyAdmin } = require("../middleware/auth");
 

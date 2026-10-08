@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Job = require("../models/job");
 const User = require("../models/user");
-const Application = require("../models/Application");
+const Application = require("../models/application");
 const { verifyAdmin } = require("../middleware/auth");
 
 const withAppliedCounts = async (filter = {}) => {

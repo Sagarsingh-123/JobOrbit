@@ -19,8 +19,25 @@ if (!process.env.JWT_SECRET) {
 }
 
 const app = express();
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  "http://localhost:5173",
+  "http://localhost:3000",
+].filter(Boolean);
 
-app.use(cors({ origin: true }));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+  })
+);
 
 // Increased limit for resume file upload
 app.use(express.json({ limit: "10mb" }));
@@ -35,7 +52,7 @@ app.use("/api/users", userRoutes);
 app.get("/", (req, res) => {
   res.json({
     message: "Welcome to JobOrbit API!",
-    status: "Backend is running"
+    status: "Backend is running",
   });
 });
 
@@ -52,14 +69,14 @@ app.use((err, req, res, next) => {
   });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = Number(process.env.PORT) || 5000;
 
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB connected successfully");
 
-    app.listen(PORT, () => {
+    app.listen(PORT, "0.0.0.0", () => {
       console.log(`JobOrbit backend running on port ${PORT}`);
     });
   })
