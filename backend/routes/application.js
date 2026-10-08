@@ -3,8 +3,8 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 
 const Application = require("../models/Application");
-const Job = require("../models/Job");
-const User = require("../models/User");
+const Job = require("../models/job");
+const User = require("../models/user");
 
 // ===============================
 // Verify Logged-in User
